@@ -4,7 +4,7 @@ print('Questão 1\n')
 # Questão 1
 # a
 x = np.array(
-    [-1.3, np.sqrt(3), (1+2+3)*4/5 ]
+    [-1.3, np.sqrt(3), (1 + 2 + 3) * 4 / 5]
 )
 print('a) x = {}'.format(x))
 
@@ -84,7 +84,7 @@ std = np.std(v3)
 print('b) Média: {}\tDesvio Padrão: {}'.format(mean, std))
 
 # c (Crie um vetor 0<x<2*pi ??)
-x = np.random.rand(1, 100) * np.pi
+x = np.random.rand(1, 100) * 2 * np.pi
 print('c) {}'.format(x))
 
 # d
@@ -127,3 +127,34 @@ func1(0, 2, 100)
 # ----------------------------------------------------------
 # Questão 6
 
+# a
+def fuzzySet(max, range, size, x):
+    """
+    Cria um conjunto Fuzzy triangular
+    """
+
+    a = max - range
+    b = max + range
+    print(x)
+    if x <= a:
+        return 0
+    elif x <= max:
+        return (x - a)/(max - a)
+    elif x <= b:
+        return (b - x)/(b - max)
+    
+    return 0
+
+# b
+max = 500
+range = 200
+size = 1000
+
+xs = np.arange(0, size, 0.1)
+# y = [fuzzySet(max, range, size, x) for x in xs]
+# or
+f = lambda x: fuzzySet(max, range, size, x)
+y = list(map(f, xs))
+
+plt.plot(xs, y)
+plt.show()
