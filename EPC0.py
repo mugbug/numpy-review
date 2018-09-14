@@ -135,7 +135,7 @@ def fuzzySet(max, range, size, x):
 
     a = max - range
     b = max + range
-    print(x)
+
     if x <= a:
         return 0
     elif x <= max:
@@ -157,4 +157,5 @@ f = lambda x: fuzzySet(max, range, size, x)
 y = list(map(f, xs))
 
 plt.plot(xs, y)
+plt.title('Questão 6\nFuzzySet')
 plt.show()
